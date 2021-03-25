@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title New Book
+    link(rel='stylesheet' href='../public/stylesheets/style.css')
+  body
+    h1 New Book
+    form(acton=`/books/new` method="POST")
+      if errors 
+        h2.error Ooooops! 
+          ul.error 
+            each error in errors 
+              li= error.message
+      p
+        label(for='title') Title
+        input#title(name='title' type='text')
+      p
+        label(for='author') Author
+        input#author(name='author' type='text')
+      p
+        label(for='genre') Genre
+        input#genre(name='genre' type='text')
+      p
+        label(for='year') Year
+        input#year(name='year' type='text')
+      p
+        input(type='submit' value='Create New Book')
+      p
+        a.button(href='all_books.html') Cancel
